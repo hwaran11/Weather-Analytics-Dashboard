@@ -1,0 +1,377 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f8fafc;
+  color: #334155;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+  letter-spacing: -0.025em;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.description {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 300;
+}
+
+/* Controls */
+.controls {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.date-controls {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.date-input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  transition: border-color 0.2s ease;
+  width: 140px;
+  color: #374151;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.date-separator {
+  color: #9ca3af;
+  font-weight: 300;
+  margin-bottom: 2px;
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stat-title {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Charts Grid - Updated Layout */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 500px 500px 500px;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top row - Temperature and Wind Speed charts */
+#temperature-chart {
+  grid-column: 1/ -1;
+  grid-row: 1;
+}
+
+#wind-speed-chart {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+/* Second row - Humidity-Temperature scatter plot centered */
+#humidity-temperature-chart {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+/* Bottom row - Full width heatmap */
+#heatmap-chart {
+  grid-column: 1 / -1;
+  grid-row: 4;
+}
+
+.chart-header {
+  background: #f8fafc;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.chart-title {
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.chart-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chart-content svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* D3.js Chart Styling */
+.axis text {
+  font-size: 11px;
+  color: #6b7280;
+  font-family: inherit;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #d1d5db;
+  shape-rendering: crispEdges;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-color.low-temp {
+  background: #fbbf24;
+}
+
+.legend-color.medium-temp {
+  background: #f97316;
+}
+
+.legend-color.high-temp {
+  background: #ef4444;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  pointer-events: none;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+}
+
+/* Error State */
+.error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 16px 0;
+  border: 1px solid #fecaca;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+
+  .charts-grid {
+    grid-template-rows: 350px 350px 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .date-controls {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .date-separator {
+    display: none;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 300px);
+    gap: 16px;
+  }
+
+  #temperature-chart,
+  #wind-speed-chart,
+  #humidity-temperature-chart,
+  #heatmap-chart {
+    grid-column: 1;
+  }
+
+  #temperature-chart { grid-row: 1; }
+  #wind-speed-chart { grid-row: 2; }
+  #humidity-temperature-chart { grid-row: 3; }
+  #heatmap-chart { grid-row: 4; }
+  
+  .chart-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .stat-card {
+    padding: 12px;
+  }
+  
+  .stat-value {
+    font-size: 16px;
+  }
+  
+  .chart-header {
+    padding: 12px 16px;
+  }
+
+  .charts-grid {
+    grid-template-rows: repeat(4, 250px);
+  }
+}

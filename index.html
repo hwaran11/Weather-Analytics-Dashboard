@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Analytics Dashboard</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">Weather Analytics Dashboard</h1>
+      <p class="subtitle">Climate Data Visualization</p>
+      <p class="description">Weather data from January 2023 to December 2023</p>
+    </header>
+
+    <!-- Date Controls -->
+    <div class="controls">
+      <div class="date-controls">
+        <div class="input-group">
+          <label for="start-date" class="input-label">Start Date</label>
+          <input type="date" id="start-date" class="date-input">
+        </div>
+        <div class="date-separator">—</div>
+        <div class="input-group">
+          <label for="end-date" class="input-label">End Date</label>
+          <input type="date" id="end-date" class="date-input">
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🌡️</div>
+        <div class="stat-title">Max Temperature</div>
+        <div id="max-temp" class="stat-value">—</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">❄️</div>
+        <div class="stat-title">Min Temperature</div>
+        <div id="min-temp" class="stat-value">—</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🌧️</div>
+        <div class="stat-title">Total Precipitation</div>
+        <div id="total-precip" class="stat-value">—</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">☔</div>
+        <div class="stat-title">Rainy Days</div>
+        <div id="total-rain-days" class="stat-value">—</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">💨</div>
+        <div class="stat-title">Max Wind Speed</div>
+        <div id="max-wind" class="stat-value">—</div>
+      </div>
+    </div>
+    
+    <!-- Charts -->
+    <div class="charts-grid">
+      <!-- Top Row: Temperature and Wind Speed -->
+      <div class="chart-container" id="temperature-chart">
+        <div class="chart-header">
+          <h2 class="chart-title">Temperature Trends</h2>
+        </div>
+        <div class="chart-content">
+          <svg></svg>
+        </div>
+      </div>
+      
+      <div class="chart-container" id="wind-speed-chart">
+        <div class="chart-header">
+          <h2 class="chart-title">Wind Speed Variation</h2>
+        </div>
+        <div class="chart-content">
+          <svg></svg>
+        </div>
+      </div>
+      
+      <!-- Second Row: Humidity-Temperature Scatter (Full Width) -->
+      <div class="chart-container" id="humidity-temperature-chart">
+        <div class="chart-header">
+          <h2 class="chart-title">Humidity vs Temperature</h2>
+        </div>
+        <div class="chart-content">
+          <svg></svg>
+        </div>
+      </div>
+      
+      <!-- Bottom Row: Full Width Heatmap -->
+      <div class="chart-container" id="heatmap-chart">
+        <div class="chart-header">
+          <h2 class="chart-title">Temperature Heatmap</h2>
+        </div>
+        <div class="chart-content">
+          <svg></svg>
+          <div class="legend">
+            <div class="legend-item">
+              <div class="legend-color low-temp"></div>
+              <span>Low</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color medium-temp"></div>
+              <span>Medium</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color high-temp"></div>
+              <span>High</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global tooltip -->
+  <div class="tooltip" id="global-tooltip"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
